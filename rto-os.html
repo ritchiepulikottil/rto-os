@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RTO OS — Early Access | RIXSTO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEBE2;
+    --paper-2:#E4E1D5;
+    --ink:#1B2A22;
+    --ink-soft:#5B6B60;
+    --line:#C9C4B4;
+    --confirmed:#2F6F52;
+    --risk:#B4762C;
+    --white:#FAFAF6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",sans-serif;
+    font-size:16px;
+    line-height:1.55;
+  }
+  .serif{font-family:"Fraunces",serif}
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+  /* header */
+  header{padding:28px 0 14px}
+  .header-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+  .wordmark{font-family:"Fraunces",serif;font-weight:600;font-size:19px;letter-spacing:.01em}
+  .manifest-no{font-size:12px;color:var(--ink-soft);text-align:right;white-space:nowrap}
+  hr.rule{border:none;border-top:1px solid var(--line);margin:0}
+
+  /* hero */
+  .hero{padding:52px 0 46px}
+  .hero .eyebrow{font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+  .hero .eyebrow .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--confirmed);margin-right:8px;vertical-align:middle}
+  h1{
+    font-family:"Fraunces",serif;
+    font-weight:500;
+    font-size:clamp(34px,5.4vw,52px);
+    line-height:1.08;
+    letter-spacing:-.01em;
+    max-width:15ch;
+    margin-bottom:22px;
+  }
+  .hero p.lead{font-size:17px;line-height:1.6;color:#33403a;max-width:52ch;margin-bottom:26px}
+  .cta-btn{
+    display:inline-block;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:"IBM Plex Sans",sans-serif;
+    font-weight:500;
+    font-size:15px;
+    padding:13px 22px;
+    border-radius:3px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+  }
+  .cta-btn:hover{background:#0f1a14}
+  .hero-note{font-size:13px;color:var(--ink-soft);margin-top:14px}
+
+  /* checkpoints */
+  .checkpoints{padding:48px 0 44px}
+  .section-label{font-size:13px;color:var(--ink-soft);margin-bottom:28px}
+  .track{position:relative;padding-left:26px}
+  .track::before{
+    content:"";
+    position:absolute;
+    left:5px;top:6px;bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .stop{position:relative;padding-bottom:34px}
+  .stop:last-child{padding-bottom:0}
+  .stop::before{
+    content:"";
+    position:absolute;
+    left:-26px;top:5px;
+    width:11px;height:11px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--ink-soft);
+  }
+  .stop.risk::before{border-color:var(--risk)}
+  .stop.confirmed::before{border-color:var(--confirmed)}
+  .stop h3{font-family:"Fraunces",serif;font-weight:500;font-size:19px;margin-bottom:6px}
+  .stop p{color:#40493f;font-size:15px;max-width:48ch}
+  .stop .flag{
+    display:inline-block;font-size:11px;font-weight:600;
+    padding:2px 8px;border-radius:2px;margin-left:10px;
+    vertical-align:middle;letter-spacing:.02em;
+  }
+  .stop.risk .flag{background:#f0e3d1;color:var(--risk)}
+  .stop.confirmed .flag{background:#dfe9e2;color:var(--confirmed)}
+
+  /* included */
+  .included{padding:44px 0 50px}
+  .row{
+    display:flex;justify-content:space-between;gap:24px;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .row:first-of-type{border-top:1px solid var(--line)}
+  .row strong{font-weight:500;font-size:15px;white-space:nowrap}
+  .row span{color:var(--ink-soft);font-size:14px;text-align:right;max-width:34ch}
+
+  /* early access panel */
+  .panel-wrap{padding:8px 0 56px}
+  .panel{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:6px;
+    padding:40px 32px;
+  }
+  .panel .eyebrow{color:#9fb0a5;font-size:13px;margin-bottom:14px}
+  .panel h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(24px,4vw,30px);margin-bottom:14px;max-width:18ch}
+  .panel p{color:#c9d2cc;font-size:15px;max-width:46ch;margin-bottom:24px}
+  form{display:flex;gap:10px;max-width:420px;flex-wrap:wrap}
+  form input{
+    flex:1;min-width:180px;
+    padding:13px 14px;
+    background:#25352C;
+    border:1px solid #3c4d43;
+    border-radius:3px;
+    color:var(--paper);
+    font-family:"IBM Plex Sans",sans-serif;
+    font-size:14px;
+  }
+  form input::placeholder{color:#7d8c82}
+  form input:focus{outline:2px solid var(--confirmed);outline-offset:1px}
+  form button{
+    background:var(--paper);
+    color:var(--ink);
+    border:none;
+    border-radius:3px;
+    padding:13px 20px;
+    font-family:"IBM Plex Sans",sans-serif;
+    font-weight:500;
+    font-size:14px;
+    cursor:pointer;
+  }
+  form button:disabled{opacity:.6;cursor:default}
+  .status{margin-top:14px;font-size:13.5px;min-height:18px}
+  .status.ok{color:#a9e0bb}
+  .status.err{color:#e0b3a9}
+  .hidden-field{position:absolute;left:-9999px}
+
+  footer{padding:26px 0 40px;font-size:12.5px;color:var(--ink-soft)}
+
+  @media(max-width:600px){
+    .header-row{flex-direction:column;gap:4px}
+    .manifest-no{text-align:left}
+    .row{flex-direction:column;gap:4px}
+    .row span{text-align:left;max-width:none}
+    form{flex-direction:column}
+    form button{width:100%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="header-row">
+      <div class="wordmark">RIXSTO</div>
+      <div class="manifest-no">RTO OS — Early Access<br>In development</div>
+    </div>
+  </header>
+  <hr class="rule">
+
+  <section class="hero">
+    <div class="eyebrow"><span class="dot"></span>For Indian D2C brands with COD delivery exposure</div>
+    <h1>Every COD order is a bet on a delivery you can't fully control.</h1>
+    <p class="lead">RTO OS is a practical system for cutting avoidable COD failures — from order confirmation to NDR recovery — that we're building in the open with a small group of Indian D2C founders.</p>
+    <a href="#early-access" class="cta-btn">Request early access</a>
+    <div class="hero-note">Nothing here is a finished product yet — this page exists to find out if it's worth building.</div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="checkpoints">
+    <div class="section-label">The order journey it's built around</div>
+    <div class="track">
+      <div class="stop confirmed">
+        <h3>Confirm before dispatch <span class="flag">confirm</span></h3>
+        <p>Lightweight COD confirmation flows to catch doubtful orders before money and inventory ship out.</p>
+      </div>
+      <div class="stop risk">
+        <h3>Reduce risky COD <span class="flag">risk</span></h3>
+        <p>Practical rules for high-value, repeat-failure, and otherwise high-risk orders.</p>
+      </div>
+      <div class="stop confirmed">
+        <h3>Recover failed deliveries <span class="flag">confirm</span></h3>
+        <p>A structured NDR follow-up sequence aimed at turning avoidable failed attempts into delivered orders.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="included">
+    <div class="section-label">What it's shaping up to include</div>
+    <div class="row"><strong>COD confirmation templates</strong><span>Ready-to-send customer messages and decision rules</span></div>
+    <div class="row"><strong>Prepaid conversion nudges</strong><span>Simple reasons for customers to pay before dispatch</span></div>
+    <div class="row"><strong>Risk-rule playbook</strong><span>Signals founders can apply using existing order data</span></div>
+    <div class="row"><strong>NDR recovery workflow</strong><span>A repeatable sequence for failed-delivery follow-up</span></div>
+  </section>
+
+  <!--
+    Static hidden form so Netlify's build bot detects this form and provisions
+    a backend for it. This block is never shown or used directly — the visible
+    form below submits to Netlify via fetch, referencing this same form name.
+  -->
+  <form name="rto-os-leads" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="email" name="email">
+  </form>
+
+  <section class="panel-wrap" id="early-access">
+    <div class="panel">
+      <div class="eyebrow">Early access</div>
+      <h2>Want to help shape it?</h2>
+      <p>We're looking for a small number of Indian D2C brands with COD or delivery exposure to look at this early and tell us honestly whether it's worth building further.</p>
+      <form id="leadForm" name="rto-os-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field" autocomplete="off">
+        <input type="hidden" name="form-name" value="rto-os-leads">
+        <p class="hidden-field"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+        <input id="email" name="email" type="email" placeholder="you@brand.com" required aria-label="Email address">
+        <button type="submit" id="submitBtn">Request early access</button>
+      </form>
+      <div class="status" id="status" role="status"></div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <footer>RIXSTO · RTO OS · Early validation asset — Day 4, not a finished product</footer>
+</div>
+
+<script>
+  const form = document.getElementById('leadForm');
+  const btn = document.getElementById('submitBtn');
+  const statusEl = document.getElementById('status');
+
+  function encodeForm(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    if(!email){ return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    statusEl.className = 'status';
+    statusEl.textContent = '';
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodeForm({
+          'form-name': 'rto-os-leads',
+          email: email
+        })
+      });
+
+      if (response.ok) {
+        statusEl.className = 'status ok';
+        statusEl.textContent = "Got it — we'll reach out if this looks like a fit.";
+        form.reset();
+        btn.textContent = 'Request early access';
+        btn.disabled = false;
+      } else {
+        throw new Error('non-200 response');
+      }
+    } catch (err) {
+      statusEl.className = 'status err';
+      statusEl.textContent = "Couldn't save that just now — mind DMing us instead so we don't miss you?";
+      btn.textContent = 'Request early access';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
