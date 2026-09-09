@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B2A22'/%3E%3Ccircle cx='32' cy='19' r='5' fill='%23EDEBE2'/%3E%3Cline x1='32' y1='27' x2='32' y2='45' stroke='%23EDEBE2' stroke-width='3' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='45' r='5' fill='none' stroke='%232F6F52' stroke-width='3'/%3E%3C/svg%3E">
 <style>
   :root{
     --paper:#EDEBE2;
@@ -156,12 +157,20 @@
   footer{padding:26px 0 40px;font-size:12.5px;color:var(--ink-soft)}
 
   @media(max-width:600px){
+    .wrap{padding:0 18px}
     .header-row{flex-direction:column;gap:4px}
     .manifest-no{text-align:left}
+    .hero{padding:38px 0 34px}
+    .checkpoints{padding:36px 0 32px}
+    .included{padding:32px 0 38px}
     .row{flex-direction:column;gap:4px}
     .row span{text-align:left;max-width:none}
+    .panel{padding:28px 20px}
+    .panel-wrap{padding:8px 0 40px}
     form{flex-direction:column}
+    form input{min-width:0}
     form button{width:100%}
+    .cta-btn{width:100%;text-align:center}
   }
 </style>
 </head>
