@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact Sales | RTOOS — RIXSTO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14120E;
+    --bg-2:#1C1914;
+    --bg-3:#242019;
+    --ink:#F3F1EA;
+    --ink-soft:#A79E8C;
+    --line:#312C22;
+    --confirmed:#7FCB9C;
+    --confirmed-bg:rgba(127,203,156,.12);
+    --risk:#E8A23D;
+    --risk-bg:rgba(232,162,61,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+  header{padding:28px 0 14px}
+  .header-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+  .wordmark{font-family:"Fraunces",serif;font-weight:700;font-size:19px;letter-spacing:.01em}
+  .back-link{font-size:13px;color:var(--ink-soft);text-decoration:none;white-space:nowrap}
+  .back-link:hover{color:var(--ink)}
+  hr.rule{border:none;border-top:1px solid var(--line);margin:0}
+
+  .hero{padding:44px 0 8px}
+  .eyebrow{font-size:13px;color:var(--ink-soft);margin-bottom:14px}
+  .eyebrow .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--confirmed);margin-right:8px;vertical-align:middle}
+  h1{
+    font-family:"Fraunces",serif;
+    font-weight:600;
+    font-size:clamp(30px,4.8vw,42px);
+    line-height:1.1;
+    letter-spacing:-.01em;
+    max-width:16ch;
+    margin-bottom:16px;
+  }
+  .hero p.lead{font-size:16px;line-height:1.6;color:var(--ink-soft);max-width:52ch;margin-bottom:8px}
+
+  .cards{padding:36px 0 56px;display:flex;flex-direction:column;gap:16px}
+  .card{
+    background:var(--bg-2);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .card-info .label{font-size:13px;color:var(--ink-soft);margin-bottom:6px}
+  .card-info .value{font-family:"Fraunces",serif;font-weight:600;font-size:19px}
+  .card-info .sub{font-size:13.5px;color:var(--ink-soft);margin-top:6px;max-width:40ch}
+  .card-btn{
+    display:inline-block;
+    background:var(--risk);
+    color:#191305;
+    font-family:"IBM Plex Sans",sans-serif;
+    font-weight:700;
+    font-size:14px;
+    padding:12px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  .card-btn:hover{background:#F2B65C}
+  .card.whatsapp .card-btn{background:var(--confirmed);color:#0E2417}
+  .card.whatsapp .card-btn:hover{background:#96D9AE}
+
+  footer{padding:26px 0 40px;font-size:12.5px;color:var(--ink-soft)}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:10px}
+  .foot-nav a{color:var(--ink-soft);text-decoration:none}
+  .foot-nav a:hover{color:var(--ink)}
+
+  @media(max-width:600px){
+    .header-row{flex-direction:column;align-items:flex-start;gap:6px}
+    .card{flex-direction:column;align-items:flex-start}
+    .card-btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="header-row">
+      <div class="wordmark">RIXSTO</div>
+      <a class="back-link" href="/rtoos.html">← Back to RTOOS</a>
+    </div>
+  </header>
+  <hr class="rule">
+
+  <section class="hero">
+    <div class="eyebrow"><span class="dot"></span>RTOOS · RIXSTO</div>
+    <h1>Talk to us directly.</h1>
+    <p class="lead">Skip the form — reach out by email or WhatsApp and we'll get back to you personally.</p>
+  </section>
+
+  <section class="cards">
+    <div class="card">
+      <div class="card-info">
+        <div class="label">Email</div>
+        <div class="value">support@rixsto.in</div>
+        <div class="sub">Best for detailed questions or sharing order volumes.</div>
+      </div>
+      <a class="card-btn" id="emailBtn" href="mailto:support@rixsto.in?subject=RTOOS%20-%20Interested%20in%20a%20pilot">Email us</a>
+    </div>
+
+    <div class="card whatsapp">
+      <div class="card-info">
+        <div class="label">WhatsApp</div>
+        <div class="value">+91 93611 49099</div>
+        <div class="sub">Fastest way to reach us — opens a chat with a starter message you can edit.</div>
+      </div>
+      <a class="card-btn" id="whatsappBtn" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <footer>
+    <div class="foot-nav">
+      <a href="/rtoos.html">RTOOS</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/refunds.html">Refunds</a>
+    </div>
+    RIXSTO · RTOOS
+  </footer>
+</div>
+
+<script>
+  const waMessage = "Hi RIXSTO team, we're interested in RTOOS for our online store — could we set up a quick chat?";
+  const waNumber = "919361149099";
+  document.getElementById('whatsappBtn').href =
+    "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(waMessage);
+</script>
+</body>
+</html>
